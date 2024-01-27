@@ -1,10 +1,13 @@
 public class Student extends Person{
-    public Student(String firstName, String lastName, String phoneNumber, String email, String address) {
-        super(firstName, lastName, phoneNumber, email, address);
+    public Student(String firstName, String lastName, String phoneNumber, String address, String email) {
+        super(firstName, lastName, phoneNumber, address, email);
     }
 
     @Override
     public String toString() {
-        return "Élève " + super.toString();
+        return """
+                
+                Élève"""
+                + super.toString();
     }
 }

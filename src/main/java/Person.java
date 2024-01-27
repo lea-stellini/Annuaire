@@ -7,12 +7,12 @@ public abstract class Person {
     private final String email;
     private final String address;
 
-    public Person(String firstName, String lastName, String phoneNumber, String email, String address) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Person(String firstName, String lastName, String phoneNumber, String address, String email) {
+        this.firstName = firstName.toLowerCase();
+        this.lastName = lastName.toLowerCase();
         this.phoneNumber = phoneNumber;
-        this.email = email;
         this.address = address;
+        this.email = email;
     }
 
     public String getFirstName() {
@@ -38,7 +38,7 @@ public abstract class Person {
     @Override
     public String toString() {
         return String.format("""
-                %s %s
+                 %s %s
                 📱: %s
                 📧: %s
                 🏠: %S
