@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class DirectoryTest {
     private Directory testDirectory = new Directory();
     private final Person student = new Student("Tim", "Tim", "9090", "34 RUE", "test@gmail.com");
-    private final Person former = new Former("Tim", "Tim", "9090", "34 RUE", "test@gmail.com");
-    private final Person former2 = new Former("Daisy", "Daisy", "6060", "34 RUE", "daisy@gmail.com");
+    private final Person former = new Former("Daisy", "Daisy", "6060", "34 RUE", "daisy@gmail.com");
+    private final Person student1 = new Student("Tim", "Léa", "9090", "32 RUE", "test@gmail.com");
 
     @BeforeEach
     void setupTest(){
@@ -17,20 +17,20 @@ class DirectoryTest {
     @Test
     void shouldAddPersonInList() {
         testDirectory.addUniquePerson(student);
-        assertEquals(1, testDirectory.getPersons().size());
+        assertTrue(testDirectory.getPersons().contains(student));
     }
 
     @Test
     void shouldAddPersonInListIfEmailNotAlreadyExits() {
         testDirectory.addUniquePerson(student);
-        testDirectory.addUniquePerson(former2);
+        testDirectory.addUniquePerson(former);
         assertEquals(2, testDirectory.getPersons().size());
     }
 
     @Test
     void shouldNotAddPersonInListIfEmailAlreadyExits() {
         testDirectory.addUniquePerson(student);
-        testDirectory.addUniquePerson(former);
+        testDirectory.addUniquePerson(student1);
         assertEquals(1, testDirectory.getPersons().size());
 
     }
