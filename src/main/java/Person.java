@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public abstract class Person {
     private final String firstName;
     private final String lastName;
@@ -46,5 +48,18 @@ public abstract class Person {
                 this.getPhoneNumber(),
                 this.getEmail(),
                 this.getAddress());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return Objects.equals(email, person.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(email);
     }
 }
